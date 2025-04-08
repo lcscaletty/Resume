@@ -1,2 +1,2 @@
-# pythonTest
-Learning how to use python
+# Resume
+Resume website using Django
