@@ -7,7 +7,7 @@
     <title>My Website</title>
     {% load compress %}
     {% compress css %}
-    <link rel="stylesheet" href="style.scss" %>
+    <link type="text/x-scss" href="{% static 'style.scss' %}" rel="stylesheet" media="screen">
     {%endcompress %}
     <link rel="icon" href="" type="image/x-icon">
   </head>
