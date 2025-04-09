@@ -5,5 +5,7 @@ from django.shortcuts import get_object_or_404
 
 # Create your views here.
 def home(request):
-    template= loader.get_template("aaronscaletty/home.html")
-    return render(request, "aaronscaletty/home.html")
+    message= "hi folks"
+    return render(request, "aaronscaletty/home.html", message )
+
+
