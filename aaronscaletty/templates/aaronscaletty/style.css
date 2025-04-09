@@ -1,0 +1,12 @@
+$primary-color :#102E50
+$secondary-color: #F5C45E
+$third-color: #E78B48
+$fourth-color:  #BE3D2A
+
+
+body{
+  background-color: $primary-color
+}
+main {
+  background-color: $primary-color
+}
