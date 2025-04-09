@@ -6,6 +6,6 @@ from django.shortcuts import get_object_or_404
 # Create your views here.
 def home(request):
     message= "hi folks"
-    return render(request, "aaronscaletty/home.html", message )
+    return render(request, "aaronscaletty/home.html" )
 
 
