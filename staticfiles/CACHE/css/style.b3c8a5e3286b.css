@@ -1,0 +1,13 @@
+/* line 7, staticfiles/style.scss */
+body {
+  background-color: #034C53;
+  color: #FFC1B4; }
+
+/* line 12, staticfiles/style.scss */
+header {
+  background-color: #007074;
+  line-height: 2.0;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  display: inline-block; }

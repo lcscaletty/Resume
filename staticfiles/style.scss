@@ -1,13 +1,23 @@
-$primary-color :#102E50;
-$secondary-color: #F5C45E;
-//$third-color: #E78B48
-//$fourth-color:  #BE3D2A
+$primary-color :#034C53;
+$secondary-color: #007074;
+$third-color: #007074;
+$fourth-color:  #FFC1B4;
 
 
-body{
+body {
   background-color: $primary-color;
-  color: $secondary-color;
+  color: $fourth-color;
 }
-main {
-  background-color: $primary-color;
+
+header{
+background-color: $secondary-color;
+line-height: 2.0;
+margin-left: auto;
+margin-right: auto;
+width: 4em;
+}
+contactfooter{
+  align-items: center;
+  posiion: absolute;
+  left: 50%;
 }

@@ -3,22 +3,32 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge"> 
     <title>My Website</title>
     {% load compress %}
     {% load static %}
     {% compress css %}
     <link type="text/x-scss" href="{% static 'style.scss' %}" rel="stylesheet" media="screen">
     {% endcompress %}
-    <link rel="icon" href="{% static "}" type="image/x-icon">
+    <link rel="icon" href="{% static "img/" type="image/x-icon">
+  
   </head>
+  <header> header </header>
   <body>
     <main>
         <h1>Aaron Scaletty Resume</h1>  
     </main>
     <script src="index.js"></script>
-     this resume is a work in progress. This is something that I built myself with python an django. the goal is to eventually have is where i can upload my resume in a specific format, maybe a csv or smth , and then have the website display that information. 
+    <h2> Hi , I'm Aaron Scaletty </h2>
+  <dl>
+    <dt> Experience </dt>
+    <dd>Ace Hardware, EWB, Element Fitness </dd>
+    <dt>Personal Projects</dt> 
+    <dd> HackKU2025, Cardboard Canoe, RGB Led strip</dd>
+  </dl>
   </body>
+  <contactfooter> here is where i will put my social links </contactfooter>
+
 </html>
 
 
