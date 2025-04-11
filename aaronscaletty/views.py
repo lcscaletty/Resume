@@ -6,7 +6,7 @@ import pandas as pd
 # Create your views here.
 
 import numpy as np
-df= pd.read_csv('/home/ascaletty23/projects/python/resume_scanner/resume.csv')
+df= pd.read_csv('../resumecsv/resume.csv')
 print(df)
 activity= np.empty((8,1), dtype= object)
 i=0
