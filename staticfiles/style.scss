@@ -14,7 +14,7 @@ body {
   font-family: NerdFont;
   margin-left: auto;
   margin-right: auto;
-  width: 25em;
+  
 }
 dt{
   font-weight: bold;
@@ -35,4 +35,8 @@ contactfooter{
   align-items: center;
   posiion: absolute;
   left: 50%;
+}
+.main_center{
+  margin-left:10em;
+  margin-right:10em;
 }

@@ -13,6 +13,7 @@ def home(request):
     activity= []
     activity= df['Title '].to_list()
     personal= activity[4:]
+
     #activity= activity[:4]
     dict = {
             'activity': activity,
