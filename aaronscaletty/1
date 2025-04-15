@@ -9,15 +9,13 @@ import os
 csvpath= staticfiles_storage.path('resumecsv/resume.csv')
 import numpy as np
 df= pd.read_csv(csvpath)
+print(df)
+activity= np.empty((8,1), dtype= object)
+i=0
+while i < 8:
+    activity[i]= df.iloc[i,1]
+    i+=1
 def home(request):
-    activity= []
-    activity= df['Title '].to_list()
-    personal= activity[4:]
-    #activity= activity[:4]
-    dict = {
-            'activity': activity,
-            'personal': personal,
-    }
+    return render(request, "aaronscaletty/home.html" )
 
-    return render(request, "aaronscaletty/home.html", dict)
 

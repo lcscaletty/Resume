@@ -1,21 +1,36 @@
-$primary-color :#034C53;
-$secondary-color: #007074;
-$third-color: #007074;
-$fourth-color:  #FFC1B4;
+$primary-color :#244855;
+$secondary-color: #E64833;
+$third-color: #874F41;
+$fourth-color:  #90AEAD;
+$fifth-color: #FBE9D0;
 
-
+@font-face {
+    font-family: 'NerdFont';
+    src: url('fonts/0xProtoNerdFont-Regular.ttf') format("truetype");
+}
 body {
   background-color: $primary-color;
   color: $fourth-color;
+  font-family: NerdFont;
+  margin-left: auto;
+  margin-right: auto;
+  width: 25em;
 }
-
+dt{
+  font-weight: bold;
+  font-family: NerdFont;
+  color: $third-color;
+}
 header{
-background-color: $secondary-color;
-line-height: 2.0;
+background-color: $third-color;
+font-family: NerdFont;
+line-height: 3.0;
 margin-left: auto;
 margin-right: auto;
-width: 4em;
+margin-top:0;
+padding:0;
 }
+
 contactfooter{
   align-items: center;
   posiion: absolute;

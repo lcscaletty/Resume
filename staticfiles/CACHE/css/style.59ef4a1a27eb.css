@@ -1,0 +1,26 @@
+/* line 8, staticfiles/style.scss */
+body {
+  background-color: #244855;
+  color: #90AEAD;
+  margin-left: auto;
+  margin-right: auto;
+  width: 25em; }
+
+/* line 15, staticfiles/style.scss */
+dt {
+  font-weight: bold;
+  color: #874F41; }
+
+/* line 19, staticfiles/style.scss */
+header {
+  background-color: #E64833;
+  line-height: 2.0;
+  margin-left: auto;
+  margin-right: auto;
+  width: 4em; }
+
+/* line 27, staticfiles/style.scss */
+contactfooter {
+  align-items: center;
+  posiion: absolute;
+  left: 50%; }

@@ -1,0 +1,33 @@
+@font-face {
+  font-family: 'NerdFont';
+  src: url("/static/fonts/0xProtoNerdFont-Regular.ttf?9b4640ba595f") format("truetype"); }
+
+/* line 11, staticfiles/style.scss */
+body {
+  background-color: #244855;
+  color: #90AEAD;
+  font-family: NerdFont;
+  margin-left: auto;
+  margin-right: auto;
+  width: 25em; }
+
+/* line 19, staticfiles/style.scss */
+dt {
+  font-weight: bold;
+  font-family: NerdFont;
+  color: #874F41; }
+
+/* line 24, staticfiles/style.scss */
+header {
+  background-color: #E64833;
+  font-family: NerdFont;
+  line-height: 3.0;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 0; }
+
+/* line 33, staticfiles/style.scss */
+contactfooter {
+  align-items: center;
+  posiion: absolute;
+  left: 50%; }

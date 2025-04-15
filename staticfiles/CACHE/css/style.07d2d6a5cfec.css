@@ -1,0 +1,31 @@
+@font-face {
+  font-family: '0xProtoNerdFont';
+  src: local("0xProtoNerdFont"), url("/staticfiles/fonts/0xProtoNerdFont-Regular.ttf") format("truetype"); }
+
+/* line 12, staticfiles/style.scss */
+body {
+  background-color: #244855;
+  color: #90AEAD;
+  margin-left: auto;
+  margin-right: auto;
+  width: 25em; }
+
+/* line 19, staticfiles/style.scss */
+dt {
+  font-weight: bold;
+  font-family: OxProtoNerdFont;
+  color: #874F41; }
+
+/* line 24, staticfiles/style.scss */
+header {
+  background-color: #E64833;
+  line-height: 2.0;
+  margin-left: auto;
+  margin-right: auto;
+  width: 4em; }
+
+/* line 32, staticfiles/style.scss */
+contactfooter {
+  align-items: center;
+  posiion: absolute;
+  left: 50%; }

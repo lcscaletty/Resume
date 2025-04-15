@@ -1,0 +1,20 @@
+/* line 7, staticfiles/style.scss */
+body {
+  background-color: #034C53;
+  color: #FFC1B4;
+  margin-right: auto;
+  margin-left: 30%; }
+
+/* line 14, staticfiles/style.scss */
+header {
+  background-color: #007074;
+  line-height: 2.0;
+  margin-left: auto;
+  margin-right: auto;
+  width: 4em; }
+
+/* line 22, staticfiles/style.scss */
+contactfooter {
+  align-items: center;
+  posiion: absolute;
+  left: 50%; }

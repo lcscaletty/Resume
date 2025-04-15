@@ -13,18 +13,26 @@
     <link rel="icon" href="{% static "img/" type="image/x-icon">
   
   </head>
-  <header> header </header>
+  <header> Resume </header>
   <body>
-    <main>
-        <h1>Aaron Scaletty Resume</h1>  
+    <main> 
+    <h1> Hi , I'm Aaron Scaletty </h1>
+
+      <h2>1.About Me </h2>
+        <p> I'm a student at the University of Kansas studying Mechanical Engineering. In my free time, I like to code, read and play frisbee golf. I built this website myself using Django.</p>
     </main>
     <script src="index.js"></script>
-    <h2> Hi , I'm Aaron Scaletty </h2>
-  <dl>
+    <h3> Student Activities and Involvement </h3>
+      <dl>
     <dt> Experience </dt>
-    <dd>Ace Hardware, EWB, Element Fitness </dd>
-    <dt>Personal Projects</dt> 
-    <dd> HackKU2025, Cardboard Canoe, RGB Led strip</dd>
+    {% for element in activity%}
+    <dd> {{element}} </dd>
+    {%endfor%}
+    <dt> Personal Projects </dt>
+    {%for element in personal%}
+    <dd> {{element}} </dd>
+    {%endfor%}
+    <dd>
   </dl>
   </body>
   <contactfooter> here is where i will put my social links </contactfooter>
