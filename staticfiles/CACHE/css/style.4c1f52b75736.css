@@ -1,0 +1,77 @@
+@font-face {
+  font-family: 'NerdFont';
+  src: url("/static/fonts/0xProtoNerdFont-Regular.ttf?9b4640ba595f") format("truetype"); }
+
+/* line 11, staticfiles/style.scss */
+body {
+  background-color: #244855;
+  color: #90AEAD;
+  font-family: NerdFont;
+  margin-left: auto;
+  margin-right: auto; }
+
+/* line 19, staticfiles/style.scss */
+dt {
+  font-weight: bold;
+  font-size: 24px;
+  font-family: NerdFont;
+  color: #874F41; }
+
+/* line 25, staticfiles/style.scss */
+header {
+  background-color: #874F41;
+  font-family: NerdFont;
+  line-height: 3.0;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 0;
+  padding: 0; }
+
+/* line 35, staticfiles/style.scss */
+contactfooter {
+  align-items: center;
+  posiion: absolute;
+  left: 50%; }
+
+/* line 40, staticfiles/style.scss */
+.main_center {
+  margin-left: 10em;
+  margin-right: 10em; }
+
+/* line 44, staticfiles/style.scss */
+.collapse {
+  background-color: #244855;
+  font-family: NerdFont;
+  color: #90AEAD;
+  cursor: pointer;
+  padding: 18px;
+  width: 100%;
+  border: none;
+  text-align: left;
+  outline: none;
+  font-size: 20px;
+  padding: 2px 2px; }
+
+/* line 57, staticfiles/style.scss */
+.active, .collapsible:hover {
+  background-color: #874F41; }
+
+/* line 60, staticfiles/style.scss */
+.collapsible:after {
+  content: '\02795';
+  /* Unicode character for "plus" sign (+) */
+  font-size: 13px;
+  color: white;
+  float: left;
+  margin-left: 5px; }
+
+/* line 68, staticfiles/style.scss */
+.active:after {
+  content: "\2796";
+  /* Unicode character for "minus" sign (-) */ }
+
+/* line 71, staticfiles/style.scss */
+.content {
+  padding: 0 18px;
+  display: none;
+  overflow: hidden; }

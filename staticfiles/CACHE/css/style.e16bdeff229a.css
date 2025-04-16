@@ -1,0 +1,61 @@
+@font-face {
+  font-family: 'NerdFont';
+  src: url("/static/fonts/0xProtoNerdFont-Regular.ttf?9b4640ba595f") format("truetype"); }
+
+/* line 11, staticfiles/style.scss */
+body {
+  background-color: #244855;
+  color: #90AEAD;
+  font-family: NerdFont;
+  margin-left: auto;
+  margin-right: auto; }
+
+/* line 19, staticfiles/style.scss */
+dt {
+  font-weight: bold;
+  font-family: NerdFont;
+  color: #874F41; }
+
+/* line 24, staticfiles/style.scss */
+header {
+  background-color: #874F41;
+  font-family: NerdFont;
+  line-height: 3.0;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 0;
+  padding: 0; }
+
+/* line 34, staticfiles/style.scss */
+contactfooter {
+  align-items: center;
+  posiion: absolute;
+  left: 50%; }
+
+/* line 39, staticfiles/style.scss */
+.main_center {
+  margin-left: 10em;
+  margin-right: 10em; }
+
+/* line 43, staticfiles/style.scss */
+.collapsible {
+  background-color: #244855;
+  color: #90AEAD;
+  cursor: pointer;
+  padding: 18px;
+  width: 100%;
+  border: none;
+  text-align: left;
+  outline: none;
+  font-size: 15px;
+  padding: 2px 2px; }
+
+/* line 55, staticfiles/style.scss */
+.active, .collapsible:hover {
+  background-color: #874F41; }
+
+/* line 58, staticfiles/style.scss */
+.content {
+  padding: 0 18px;
+  display: none;
+  overflow: hidden; }

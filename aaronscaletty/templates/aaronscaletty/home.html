@@ -1,46 +1,102 @@
 <!DOCTYPE html>
+{% load static %}
 <html lang="en">
-  <head>
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge"> 
-    <title>My Website</title>
+    <title>Resume</title>
     {% load compress %}
-    {% load static %}
     {% compress css %}
     <link type="text/x-scss" href="{% static 'style.scss' %}" rel="stylesheet" media="screen">
     {% endcompress %}
-    <link rel="icon" href="{% static "img/" type="image/x-icon">
-  
-  </head>
-  <header> Resume </header>
+</head>
+<body>
+    <header>1.About Me 2. Student Activities and Involvemnet 3. Personal Projects 4.Contact </header>
+    <div class="main_center">
+        <main> 
+            <h1>Hi, I'm Aaron Scaletty</h1>
+            <h2>1. About Me</h2>
+            <p>I'm a student at the University of Kansas studying Mechanical Engineering. In my free time, I like to code, read, hike, camp and play frisbee golf.I'm a proud neovim and arch user, and I built this website myself using Django.</p>
+        
+            <h3> 2. Student Activities and Involvement</h3>
+            <dl>
+                {% for title,b1,b2,b3,b4,b5 in combined %}
 
+                
+                    <button class="collapsible" onclick="toggleCollapsible(this)">{{ title }}</button>
+                    <div class="content" style="display: none;">
+                      <ul>
+                        {%if b1%}
+                        <li>{{b1}}</li>
+                        {%else%}
+                        
+                        {%endif%}
+                        {%if b2%}
+                        <li>{{b2}}</li>
+                        {%else%}
+                      
+                        {%endif%}
+                        {%if b3%}
+                        <li>{{b3}}</li>
+                        {%else%}
+                      
+                        {%endif%}
+                        {%if b4%}
+                        <li>{{b4}}</li>
+                        {%else%}
+                      
+                        {%endif%}
+                        {%if b5%}
+                        <li>{{b5}}</li>
+                        {%else%}
+                    
+                        {%endif%}
+                        
+                      </ul>
+                    
 
-  <body>
-    <div class= "main_center">
-    <main> 
-    <h1> Hi , I'm Aaron Scaletty </h1>
-
-      <h2>1.About Me </h2>
-        <p> I'm a student at the University of Kansas studying Mechanical Engineering. In my free time, I like to code, read and play frisbee golf. I built this website myself using Django.</p>
-    </main>
-    <script src="index.js"></script>
-    <h3> Student Activities and Involvement </h3>
-      <dl>
-    <dt> Experience </dt>
-    {% for element in activity%}
-    <dd> {{element}} </dd>
-    {%endfor%}
-    <dt> Personal Projects </dt>
-    {%for element in personal%}
-    <dd> {{element}} </dd>
-    {%endfor%}
-    <dd>
-  </dl>
+                    </div>
+                  {% endfor %}
+                      <h3> 3.Personal Projects and Education</h3>
+                        {% for title,b1,b2,b3,b4,b5 in combined1 %}
+                         <button class="collapsible" onclick="toggleCollapsible(this)">{{ title }}</button>
+                          <div class="content" style="display: none;">
+                             <ul>
+                               {%if b1%}
+                               <li>{{b1}}</li>
+                               {%else%}
+                        
+                              {%endif%}
+                              {%if b2%}
+                              <li>{{b2}}</li>
+                              {%else%}
+                      
+                              {%endif%}
+                              {%if b3%}
+                              <li>{{b3}}</li>
+                              {%else%}
+                      
+                              {%endif%}
+                              {%if b4%}
+                              <li>{{b4}}</li>
+                              {%else%}
+                      
+                              {%endif%}
+                              {%if b5%}
+                              <li>{{b5}}</li>
+                              {%else%}
+                    
+                              {%endif%}
+                      </ul>
+                    </div>
+                    {%endfor%}
+            </dl>
+        </main>
     </div>
-  </body>
-  <contactfooter> here is where i will put my social links </contactfooter>
-
+    
+    <footer>Here is where I will put my social links</footer>
+    
+    <script src="{% static 'collapsible.js' %}"></script>
+</body>
 </html>
-
-
