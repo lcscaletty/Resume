@@ -9,6 +9,10 @@
     {% load compress %}
     {% compress css %}
     <link type="text/x-scss" href="{% static 'style.scss' %}" rel="stylesheet" media="screen">
+
+    <script src="https://unpkg.com/htmx.org@1.9.6"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script><script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script><script src="//cdnjs.cloudflare.com/ajax/libs/lodash.js/0.10.0/lodash.min.js"> </script>
+
     {% endcompress %}
 </head>
 <body>
@@ -16,9 +20,8 @@
     <div class="main_center">
         <main> 
             <h1>Hi, I'm Aaron Scaletty</h1>
-            <h2>1. About Me</h2>
+                       <h2>1. About Me</h2>
             <p>I'm a student at the University of Kansas studying Mechanical Engineering. In my free time, I like to code, read, hike, camp and play frisbee golf.I'm a proud neovim and arch user, and I built this website myself using Django.</p>
-        
             <h3> 2. Student Activities and Involvement</h3>
             <dl>
                 {% for title,b1,b2,b3,b4,b5 in combined %}

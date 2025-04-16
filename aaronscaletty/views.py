@@ -14,7 +14,6 @@ def home(request):
     activity= []
     activity = df['Title'].fillna('').astype(str).str.strip().tolist()
     personal = activity[4:]
-    print(personal)
     activity = activity[:4]
     blurbs1 = df['Bullet 1'].fillna('').astype(str).str.strip().tolist()
     blurbs2 = df['Bullet 2'].fillna('').astype(str).str.strip().tolist()
