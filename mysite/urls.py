@@ -21,4 +21,7 @@ from aaronscaletty import views
 urlpatterns = [
     path("polls/", include("polls.urls")),
     path("admin/", admin.site.urls),
-    path("aaronscaletty",include("aaronscaletty.urls")), ]
+    path("aaronscaletty",include("aaronscaletty.urls")),
+    path("leoscaletty/",include("leoscaletty.urls")),
+    path('accounts/', include('django.contrib.auth.urls'))
+    ]

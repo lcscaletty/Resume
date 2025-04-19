@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'leoscaletty.apps.LeoscalettyConfig',
 ]
 
 MIDDLEWARE = [
@@ -62,7 +63,7 @@ TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [
-    
+            os.path.join(BASE_DIR, 'mysite/templates')
         ],
         'APP_DIRS': True,
         'OPTIONS': {
@@ -140,3 +141,5 @@ import django_heroku
 
 django_heroku.settings(locals())
 
+LOGIN_URL = '/accounts/login/'
+LOGIN_REDIRECT_URL = '/'
