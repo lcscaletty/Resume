@@ -11,20 +11,69 @@
     {% compress css %}
     <link type="text/x-scss" href="{% static 'style.scss' %}" rel="stylesheet" media="screen">
 
-    <script src="https://unpkg.com/htmx.org@1.9.6"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script><script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script><script src="//cdnjs.cloudflare.com/ajax/libs/lodash.js/0.10.0/lodash.min.js"> </script>
+
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/xterm/3.14.5/xterm.min.js"></script>
 
     {% endcompress %}
 </head>
 <body>
-    <header>1.About Me 2. Student Activities and Involvemnet 3. Personal Projects 4.Contact </header>
+<form action="aaronscaletty/terminal/" method="post">
+    {% csrf_token %}
+    {{ form }}
+    <input type="submit" value="Submit" /hidden>
+</form>
+<p></p>
+<header>1.About Me 2. Student Activities and Involvement 3. Personal Projects 4.Contact </header>
     <div class="main_center">
         <main> 
-            <h1>Hi, I'm Aaron Scaletty</h1>
-                       <h2>1. About Me</h2>
-            <p>I'm a student at the University of Kansas studying Mechanical Engineering. In my free time, I like to code, read, hike, camp and play frisbee golf.I'm a proud neovim and arch user, and I built this website myself using Django.</p>
-            <h3> 2. Student Activities and Involvement</h3>
-            <dl>
+          <div id="container">
+    <h1>
+      <pre>
+   _                               __              _        _    _          
+  /_\    __ _  _ __  ___   _ __   / _\  ___  __ _ | |  ___ | |_ | |_  _   _ 
+ //_\\  / _` || '__|/ _ \ | '_ \  \ \  / __|/ _` || | / _ \| __|| __|| | | |
+/  _  \| (_| || |  | (_) || | | | _\ \| (__| (_| || ||  __/| |_ | |_ | |_| |
+\_/ \_/ \__,_||_|   \___/ |_| |_| \__/ \___|\__,_||_| \___| \__| \__| \__, |
+                                                                      |___/ 
+       </pre>
+  </h1> 
+             <h2>
+  <pre>
+   _   _                 _                 
+  /_\ | |__   ___  _   _| |_    /\/\   ___ 
+ //_\\| '_ \ / _ \| | | | __|  /    \ / _ \
+/  _  \ |_) | (_) | |_| | |_  / /\/\ \  __/
+\_/ \_/_.__/ \___/ \__,_|\__| \/    \/\___|                                         
+  </pre>
+
+
+             </h2>
+            <p>I'm a student at the University of Kansas studying Mechanical Engineering. 
+            In my free time, I like to code, read, hike, camp and play frisbee golf.
+            I'm a proud neovim and arch user, and I built this website myself using Django.</p>
+              </div>
+
+
+
+
+          <br>
+            <div class="activites">
+            <h3> 
+              <pre>
+
+
+ __ _             _            _       _        _   _       _ _   _              
+/ _\ |_ _   _  __| | ___ _ __ | |_    /_\   ___| |_(_)_   _(_) |_(_) ___  ___    
+\ \| __| | | |/ _` |/ _ \ '_ \| __|  //_\\ / __| __| \ \ / / | __| |/ _ \/ __|   
+_\ \ |_| |_| | (_| |  __/ | | | |_  /  _  \ (__| |_| |\ V /| | |_| |  __/\__ \   
+\__/\__|\__,_|\__,_|\___|_| |_|\__| \_/ \_/\___|\__|_| \_/ |_|\__|_|\___||___/   
+   _             _    _____                 _                                _   
+  /_\  _ __   __| |   \_   \_ ____   _____ | |_   _____ _ __ ___   ___ _ __ | |_ 
+ //_\\| '_ \ / _` |    / /\/ '_ \ \ / / _ \| \ \ / / _ \ '_ ` _ \ / _ \ '_ \| __|
+/  _  \ | | | (_| | /\/ /_ | | | \ V / (_) | |\ V /  __/ | | | | |  __/ | | | |_ 
+\_/ \_/_| |_|\__,_| \____/ |_| |_|\_/ \___/|_| \_/ \___|_| |_| |_|\___|_| |_|\__|                                             
+              </pre>
+            </h3>
                 {% for title,b1,b2,b3,b4,b5 in combined %}
 
                 
@@ -62,7 +111,29 @@
 
                     </div>
                   {% endfor %}
-                      <h3> 3.Personal Projects and Education</h3>
+            </div>
+            <br>
+            <div class= "projects">
+                      <h3>
+<pre>
+
+
+   ___                                _                   _           _       
+  / _ \___ _ __ ___  ___  _ __   __ _| |  _ __  _ __ ___ (_) ___  ___| |_ ___ 
+ / /_)/ _ \ '__/ __|/ _ \| '_ \ / _` | | | '_ \| '__/ _ \| |/ _ \/ __| __/ __|
+/ ___/  __/ |  \__ \ (_) | | | | (_| | | | |_) | | | (_) | |  __/ (__| |_\__ \
+\/    \___|_|  |___/\___/|_| |_|\__,_|_| | .__/|_|  \___// |\___|\___|\__|___/
+  __ _ _ __   __| |   ___  __| |_   _  __|_|_ _| |_(_) |__/ _ __              
+ / _` | '_ \ / _` |  / _ \/ _` | | | |/ __/ _` | __| |/ _ \| '_ \             
+| (_| | | | | (_| | |  __/ (_| | |_| | (_| (_| | |_| | (_) | | | |            
+ \__,_|_| |_|\__,_|  \___|\__,_|\__,_|\___\__,_|\__|_|\___/|_| |_|            
+                                                                              
+
+</pre>
+
+
+
+                      </h3>
                         {% for title,b1,b2,b3,b4,b5 in combined1 %}
                          <button class="collapsible" onclick="toggleCollapsible(this)">{{ title }}</button>
                           <div class="content" style="display: none;">
@@ -95,8 +166,10 @@
                       </ul>
                     </div>
                     {%endfor%}
+            </div>
             </dl>
         </main>
+        </div>
     </div>
     
     <footer>Here is where I will put my social links</footer>

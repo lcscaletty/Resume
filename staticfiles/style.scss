@@ -43,19 +43,22 @@ header {
 
 h1 {
     color: $secondary-color;
-    font-size: 2.5rem;
+    font-size: 1.5rem;
     margin-bottom: 1.5rem;
+    margin: auto auto;
+    text-align: center
+
 }
 
 h2 {
     color: $fifth-color;
-    font-size: 1.8rem;
+    font-size: .7rem;
     margin-top: 2rem;
 }
 
 h3 {
     color: $fifth-color;
-    font-size: 1.5rem;
+    font-size: 0.7rem;
     margin-top: 2rem;
 }
 
@@ -131,6 +134,24 @@ footer {
     color: $fifth-color;
 }
 
+#container{
+ // scroll-snap-type: y proximity;
+  margin: auto auto;
+  white-space: wrap;
+  aspect-ratio: 1/1;
+  overflow-x: scroll;
+}
+#container > div {
+  display: inline-block;
+  height: 80%;
+  border-radius: 10%;
+  aspect-ratio: 1/1;
+ margin: 5px;
+ // scroll-snap-align: start;
+}
+ul{
+
+}
 /* Responsive adjustments */
 @media (max-width: 768px) {
     .main_center {
@@ -141,4 +162,30 @@ footer {
     h1 {
         font-size: 2rem;
     }
+}
+input{
+  background: transparent;
+  border: none;
+  color: $fourth-color;
+ font-family: 'NerdFont', sans-serif;
+}
+input:active{
+font-family: 'NerdFont', sans-serif;
+background:transparent;
+color: $fourth-color;
+border:none;
+outline: none;
+}
+input:focus{
+background:transparent;
+font-family: 'NerdFont', sans-serif;
+color: $fourth-color;
+border:none;
+outline: none;
+}
+.terminal{
+color: $fourth-color;
+font-family: 'NerdFont', sans-serif;
+font-size: 20px;
+
 }
