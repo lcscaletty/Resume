@@ -15,24 +15,34 @@
     <script src="{%static 'node_modules/bootstrap/dist/js/bootstrap.js'%}"></script>
 
    </head>
-<body hx-headers='{"x-csrftoken": "{{ csrf_token }}"}' tabindex='-1'>
+<body hx-headers='{"x-csrftoken": "{{ csrf_token }}"}'>
 {{i|json_script:'id'}}
   <script>
   htmx.logAll();
-
+  var n=1
   function myfunc(){
       console.log('myfunc called')
       var i = JSON.parse(document.getElementById("id").textContent);
       var m= 'm';
-      var k= String(i+1);
+      var k= String(i+n);
       var j= m+k;
       console.log(j);
-      document.getElementById(j).focus()
+      document.forms[j].elements[0].focus();
+      console.log(document.activeElement);
       console.log('confirm focus')
+      n=n+1
   }
   </script>
-  <div id='responses' tabindex="0" hx-on::after-settle= " console.log('focusing up'); setTimeout(myfunc,100);">
-
+  <div id='responses' hx-on::after-settle= " console.log('focusing up'); setTimeout(myfunc,100);" tabindex = '-1'>
+  <p> Welcome to my terminal resume. Type help for commands or normal to activate a ui</p>
+  <pre>
+   _                               __              _        _    _          
+  /_\    __ _  _ __  ___   _ __   / _\  ___  __ _ | |  ___ | |_ | |_  _   _ 
+ //_\\  / _` || '__|/ _ \ | '_ \  \ \  / __|/ _` || | / _ \| __|| __|| | | |
+/  _  \| (_| || |  | (_) || | | | _\ \| (__| (_| || ||  __/| |_ | |_ | |_| |
+\_/ \_/ \__,_||_|   \___/ |_| |_| \__/ \___|\__,_||_| \___| \__| \__| \__, |
+                                                                      |___/ 
+  </pre>
  {% include 'aaronscaletty/partials/form.html' with context_variable='i' %}
 </div>
 <header>1.About Me 2. Student Activities and Involvement 3. Personal Projects 4.Contact </header>

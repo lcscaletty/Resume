@@ -36,16 +36,20 @@ def form(request):
     #form = terminalForm(request.POST)
        #print('before iteration',i, log)
     # check whether it's valid:
-    form= terminalForm()
-    if request.method== "POST":
+    form= terminalForm(request.POST or None)
+    if request.method == "POST":
+        if form.is_valid():
+            print('in form save part')
             #process the data in form.cleaned_data as required
-                        form.save
-                        #log[i]=form.cleaned_data['terminal_input'] 
-                        #response = processinput(i,log)
-                        i=i+1
-                        form_name= 'm'+str(i)
-                        print(i)
-                        print('passed formname', form_name)
+            form.save
+            log[i]=form.cleaned_data['terminal_input'] 
+            response = processinput(i,log)
+            i=i+1
+            form_name= 'm'+str(i)
+            print(i)
+            print('passed formname', form_name)
+        else: 
+            print(form.errors.as_data())
                         #print(log)
                         #print("passed response:",response)
 
@@ -53,14 +57,19 @@ def form(request):
                 'form': terminalForm(),
                 'i': i,
                 'form_name': form_name,
-
-                #'response': response,
+                'response': response,
                  }
            #print(context['response'])
     return render(request, "aaronscaletty/partials/form.html", context)
 
 def home(request):
     # create a form instance and populate it with data from the request:
+   if i==0:
+       hider= 'hidden'
+       print('hiding pre div')
+   else:
+       hider=""
+       print(' pre div unhidden')
    form_name= 'm'+str(i)
    dict = {
             'activity': activity,
@@ -70,22 +79,31 @@ def home(request):
             'form':terminalForm(),
             'i':i,
             'form_name': form_name,
+            "hider": hider,
             }
    return render(request, 'aaronscaletty/home.html', dict)
 def processinput(n, log):
     print('i value', n)
     if log[n] == 'help':
         print('help called')
-        return "list of commands here"
+        return  """
+                get cv:                           download my resume
+                projects:                         My projects
+                skills:                           My tech skills
+                contact:                          Contact method
+                clear:                            clear terminal
+                normal:                 turn this page into a normal website 
+                        type one of the above to view."""
     if log[n] == 'clear':
         log[:]=""
         i= 0
         print('cleared' ,log)
         return 'clear terminal'
-    if log[n] == '':
-        return ''
+    if log[n] == 'skills':
+        return 'CAD, Python, C++, Soldering, Manual Drafting, Project Management'
     else:
         print('else called')
         return 'command not found'
+    
     
 

@@ -1,8 +1,11 @@
-<form id={{form_name}}>
+<form id={{form_name}} autofocus='true'>
+  <pre {{hider}}>
+    {{response}}
+  </pre>
     {{ form }}
     <input type= 'submit' id= {{form_name}} 
     hx-post= {%url 'form' %}
     hx-target= '#responses'
-    hx-swap= 'beforeend scroll:bottom'                          
-    hidden/>
+    hx-swap= 'beforeend'                          
+   hidden/>
   </form>
