@@ -43,7 +43,7 @@ header {
 
 h1 {
     color: $secondary-color;
-    font-size: 1.5rem;
+    font-size: 1.0rem;
     margin-bottom: 1.5rem;
     margin: auto auto;
     text-align: center
@@ -183,6 +183,15 @@ color: $fourth-color;
 border:none;
 outline: none;
 }
-.responses{
-  text-align: center
+#responses{
+  text-align:left;
+  margin: auto;
+  width: 40em;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+#container{
+  height: 50em;
+  position: relative;
 }

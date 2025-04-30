@@ -86,13 +86,12 @@ def processinput(n, log):
     print('i value', n)
     if log[n] == 'help':
         print('help called')
-        return  """
-                get cv:                           download my resume
-                projects:                         My projects
-                skills:                           My tech skills
-                contact:                          Contact method
-                clear:                            clear terminal
-                normal:                 turn this page into a normal website 
+        return  """"get cv:                           download my resume
+                    projects:                         My projects
+                    skills:                           My tech skills
+                    contact:                          Contact method
+                    clear:                            clear terminal
+                    normal:                 turn this page into a normal website 
                         type one of the above to view."""
     if log[n] == 'clear':
         log[:]=""

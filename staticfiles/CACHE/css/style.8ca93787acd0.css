@@ -1,0 +1,194 @@
+@font-face {
+  font-family: 'NerdFont';
+  src: url("/static/fonts/0xProtoNerdFont-Regular.ttf?9b4640ba595f") format("truetype"); }
+
+/* line 12, staticfiles/style.scss */
+* {
+  box-sizing: border-box; }
+
+/* line 16, staticfiles/style.scss */
+html, body {
+  margin: 0;
+  padding: 0; }
+
+/* line 21, staticfiles/style.scss */
+body {
+  background-color: #244855;
+  color: #90AEAD;
+  font-family: 'NerdFont', sans-serif;
+  line-height: 1.6; }
+
+/* line 28, staticfiles/style.scss */
+header {
+  background-color: #874F41;
+  padding: 1rem 2rem;
+  text-align: center;
+  font-size: 20px;
+  font-weight: bold;
+  color: #FBE9D0;
+  margin-bottom: 2rem; }
+
+/* line 38, staticfiles/style.scss */
+.main_center {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem; }
+
+/* line 44, staticfiles/style.scss */
+h1 {
+  color: #E64833;
+  font-size: 1.0rem;
+  margin-bottom: 1.5rem;
+  margin: auto auto;
+  text-align: center; }
+
+/* line 53, staticfiles/style.scss */
+h2 {
+  color: #FBE9D0;
+  font-size: .7rem;
+  margin-top: 2rem; }
+
+/* line 59, staticfiles/style.scss */
+h3 {
+  color: #FBE9D0;
+  font-size: 0.7rem;
+  margin-top: 2rem; }
+
+/* line 65, staticfiles/style.scss */
+dt {
+  font-weight: bold;
+  font-size: 24px;
+  color: #874F41;
+  margin-top: 1.5rem;
+  margin-bottom: 0.75rem; }
+
+/* line 73, staticfiles/style.scss */
+dd {
+  margin-left: 0;
+  margin-bottom: 1rem; }
+
+/* Collapsible components */
+/* line 79, staticfiles/style.scss */
+.collapsible {
+  background-color: #244855;
+  color: #90AEAD;
+  cursor: pointer;
+  padding: 12px 15px;
+  width: 100%;
+  border: 1px solid #874F41;
+  border-radius: 4px;
+  text-align: left;
+  outline: none;
+  font-size: 18px;
+  transition: background-color 0.3s;
+  position: relative;
+  font-family: 'NerdFont', sans-serif; }
+
+/* line 95, staticfiles/style.scss */
+.collapsible:hover {
+  background-color: #1c3943; }
+
+/* line 99, staticfiles/style.scss */
+.collapsible:after {
+  content: '\02795';
+  /* Unicode character for "plus" sign (+) */
+  font-size: 13px;
+  color: #90AEAD;
+  float: right;
+  margin-left: 5px; }
+
+/* line 107, staticfiles/style.scss */
+.collapsible.active:after {
+  content: "\2796";
+  /* Unicode character for "minus" sign (-) */ }
+
+/* line 111, staticfiles/style.scss */
+.content {
+  padding: 0;
+  max-height: 300;
+  overflow: hidden;
+  color: #FBE9D0;
+  transition: max-height 0.3s ease-out;
+  background-color: #1f3f4a;
+  border-bottom-left-radius: 4px;
+  border-bottom-right-radius: 4px; }
+
+/* line 122, staticfiles/style.scss */
+.content p {
+  padding: 15px;
+  margin: 0; }
+
+/* line 126, staticfiles/style.scss */
+footer {
+  text-align: center;
+  padding: 2rem;
+  margin-top: 3rem;
+  height: 4vh;
+  position: relative;
+  top: 90vh;
+  background-color: #874F41;
+  color: #FBE9D0; }
+
+/* line 137, staticfiles/style.scss */
+#container {
+  margin: auto auto;
+  white-space: wrap;
+  aspect-ratio: 1/1;
+  overflow-x: scroll; }
+
+/* line 144, staticfiles/style.scss */
+#container > div {
+  display: inline-block;
+  height: 80%;
+  border-radius: 10%;
+  aspect-ratio: 1/1;
+  margin: 5px; }
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  /* line 157, staticfiles/style.scss */
+  .main_center {
+    margin: 0 1rem;
+    padding: 0 1rem; }
+  /* line 162, staticfiles/style.scss */
+  h1 {
+    font-size: 2rem; } }
+
+/* line 166, staticfiles/style.scss */
+input {
+  background: transparent;
+  border: none;
+  color: #90AEAD;
+  font-family: 'NerdFont', sans-serif; }
+
+/* line 172, staticfiles/style.scss */
+input:active {
+  font-family: 'NerdFont', sans-serif;
+  background: transparent;
+  color: #90AEAD;
+  border: none;
+  outline: none; }
+
+/* line 179, staticfiles/style.scss */
+input:focus {
+  background: transparent;
+  font-family: 'NerdFont', sans-serif;
+  color: #90AEAD;
+  border: none;
+  outline: none; }
+
+/* line 186, staticfiles/style.scss */
+#responses {
+  text-align: left;
+  margin: auto;
+  width: 40em;
+  position: absolute;
+  top: 50%;
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%); }
+
+/* line 195, staticfiles/style.scss */
+#container {
+  height: 60em;
+  margin: auto;
+  position: relative; }
