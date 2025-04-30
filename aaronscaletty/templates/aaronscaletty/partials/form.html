@@ -1,0 +1,8 @@
+<form id={{form_name}}>
+    {{ form }}
+    <input type= 'submit' id= {{form_name}} 
+    hx-post= {%url 'form' %}
+    hx-target= '#responses'
+    hx-swap= 'beforeend scroll:bottom'                          
+    hidden/>
+  </form>

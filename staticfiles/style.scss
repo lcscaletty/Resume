@@ -167,7 +167,7 @@ input{
   background: transparent;
   border: none;
   color: $fourth-color;
- font-family: 'NerdFont', sans-serif;
+  font-family: 'NerdFont', sans-serif;
 }
 input:active{
 font-family: 'NerdFont', sans-serif;
@@ -177,12 +177,14 @@ border:none;
 outline: none;
 }
 input:focus{
-background:transparent;
+background:$fifth-color;
 font-family: 'NerdFont', sans-serif;
 color: $fourth-color;
 border:none;
-outline: none;
+outline: 2px;
+font-size: 20px;
 }
+
 .terminal{
 color: $fourth-color;
 font-family: 'NerdFont', sans-serif;

@@ -1,0 +1,31 @@
+{{i|json_script:'id'}}
+<script>
+  function myfunc(){
+      const responses = document.getElementById('responses')
+      responses.setAttribute('tabindex', '0');
+      console.log('myfunc called')
+      var i = JSON.parse(document.getElementById("id").textContent);
+      var j= String(i+1);
+      console.log(j);
+      document.getElementById(j).focus()
+      console.log('confirm focus')
+  }
+ function test(){
+   document.getElementById('test').focus()
+ }
+</script>
+<button onsubmit= 'return test()' type= submit>focus up jit</button>
+<form>
+  <input type="text" id='test'>
+</form>
+<form id={{form_name}}>
+    {{ form }}
+    <input type= 'submit' id= {{form_name}} 
+    autofocus
+    hx-post= {%url 'form' %}
+    hx-target= '#responses'
+    hx-swap= 'beforeend scroll:bottom'
+    hx-on:htmx:afterSwap= "myfunc()"                            "
+    hidden/>
+
+  </form>
