@@ -17,6 +17,7 @@
    </head>
 <body hx-headers='{"x-csrftoken": "{{ csrf_token }}"}'>
 {{i|json_script:'id'}}
+{{response|json_script:'response'}}
   <script>
   var n=1
   function myfunc(){
@@ -33,7 +34,7 @@
   }
   </script> 
   <div id= 'container'>
-  <div id='responses' hx-on::after-settle= " console.log('focusing up'); setTimeout(myfunc,100);" tabindex = '-1'>
+  <div id='responses' hx-on::after-settle= " console.log('focusing up'); myfunc()" tabindex = '-1'>
         <h1>
   <pre>
    _                               __              _        _    _          
@@ -47,8 +48,6 @@
     <p> welcome to my resume. type help to start or normal to get a ui</p>
     
  {% include 'aaronscaletty/partials/form.html' with context_variable='response' %}
-    <div id='test'>
-    </div>
 </div>
 </div>
 </body>

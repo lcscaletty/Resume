@@ -1,24 +1,13 @@
- {{response|json_script:'response'}}
-<script>
-  function func(){
-var response= JSON.parse(document.getElementById('response').textContent)
-console.log('response', response)
-var para = document.createElement("p");
-var node = document.createTextNode("hi");
-para.appendChild(node);
-const element = document.getElementById('test')
-element.appendChild(para);
-  }
-</script>
 
 <form id={{form_name}} autofocus='true'>  
-    {{ form }}
-    {% include 'aaronscaletty/partials/response.html'%}
+    {{response}}
+  
+    {{ form }}  
+
     <input type= 'submit' id= {{form_name}} 
     hx-post= {%url 'form' %}
     hx-target= '#responses'
     hx-swap= 'beforeend'
-    hx-on::after-request= 'func()'
    hidden/> 
   </form>
  

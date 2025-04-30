@@ -50,6 +50,7 @@ def form(request):
             print('passed formname', form_name)
         else: 
             print(form.errors.as_data())
+            resonse= 'command not found'
                         #print(log)
                         #print("passed response:",response)
 
@@ -59,40 +60,33 @@ def form(request):
                 'form_name': form_name,
                 'response': response,
                  }
-           #print(context['response'])
+
+    print(context['response'])
     return render(request, "aaronscaletty/partials/form.html", context)
 
 def home(request):
     # create a form instance and populate it with data from the request:
-   if i==0:
-       hider= 'hidden'
-       print('hiding pre div')
-   else:
-       hider=""
-       print(' pre div unhidden')
    form_name= 'm'+str(i)
-   dict = {
-            'activity': activity,
-            'personal': personal,
-            'combined':combined,
-            'combined1':combined1,
+   dict = { 
             'form':terminalForm(),
             'i':i,
             'form_name': form_name,
-            "hider": hider,
             }
    return render(request, 'aaronscaletty/home.html', dict)
 def processinput(n, log):
     print('i value', n)
     if log[n] == 'help':
         print('help called')
-        return  """"get cv:                           download my resume
-                    projects:                         My projects
-                    skills:                           My tech skills
-                    contact:                          Contact method
-                    clear:                            clear terminal
-                    normal:                 turn this page into a normal website 
-                        type one of the above to view."""
+        help= '''
+                get_cvdownload my resume,
+                projects\tMy projects,
+                skills\tMy tech skills,
+                contact      Contact method,
+                clear:       clear terminal,
+                normal   turn this page into a normal website ,
+                'disclamer'  'type one of the above to view.'''
+
+        return help   
     if log[n] == 'clear':
         log[:]=""
         i= 0
