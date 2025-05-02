@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+  <head>
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/jquery.terminal/js/jquery.terminal.min.js"></script>
+  {{%load static%}}
+  <link rel="stylesheet" href="{{%static 'terminal.css'}}"/>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.0.943/pdf.min.js"></script>
+</head>
+<body>
+
+  <template id='greetings'>
+   ___                       ____         __    __  __      
+  / _ |___ ________  ___    / __/______ _/ /__ / /_/ /___ __
+ / __ / _ `/ __/ _ \/ _ \  _\ \/ __/ _ `/ / -_) __/ __/ // /
+/_/ |_\_,_/_/  \___/_//_/ /___/\__/\_,_/_/\__/\__/\__/\_, / 
+                                                     /___/ 
+type help for command list and normal to get a ui
+  </template>
+  <template id='normal'>lol skill issue...</template>
+  <template id='help'> 
+get cv:                                       download my cv
+aboutme:                                      learn a little about me
+normal:                                       go to learn a website with a gui
+contact:                                      contact me
+clear:                                        clear terminal
+theme:                                        change theme
+
+  </template>
+
+  <script>
+$('body').terminal({
+    hello: function(what) {
+        this.echo('Hello, ' + what +
+                  '. Wellcome to this terminal.');
+    },
+    marco: function() {
+        this.echo('Polo!');
+    },
+    normal:function() {
+        this.echo(normal.innerHTML);
+        setTimeout(function() {
+          window.location.replace("https://scaletty.com/aaronscaletty/ui");
+        }, 1000)
+    },
+    help: function() {
+        this.echo(help.innerHTML);
+    },
+    get: function(input) {
+      if(input== 'cv'){
+
+      }
+      },
+
+
+}, {
+    greetings: greetings.innerHTML
+});
+</script>
+</body>
+</html>
