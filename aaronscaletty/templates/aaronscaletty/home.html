@@ -1,54 +1,126 @@
 <!DOCTYPE html>
-{% load static %}
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge"> 
-    <title>Resume</title>
-    <link rel="icon" href= "{%static "scalettylogo.jpg"%}" type="image/x-icon" />
-    {% load compress %}
-    {% compress css %}
-    <link type="text/x-scss" href="{% static 'style.scss' %}" rel="stylesheet" media="screen">
-     {% endcompress %}
-    <script src="{%static 'node_modules/htmx.org/dist/htmx.min.js'%}"></script>
-    <script src="{%static 'node_modules/bootstrap/dist/js/bootstrap.js'%}"></script>
-
-   </head>
-<body hx-headers='{"x-csrftoken": "{{ csrf_token }}"}'>
-{{i|json_script:'id'}}
-{{response|json_script:'response'}}
-  <script>
-  var n=1
-  function myfunc(){
-      console.log('myfunc called')
-      var i = JSON.parse(document.getElementById("id").textContent);
-      var m= 'm';
-      var k= String(i+n);
-      var j= m+k;
-      console.log(j);
-      document.forms[j].elements[0].focus();
-      console.log(document.activeElement);
-      console.log('confirm focus')
-      n=n+1
+<html>
+  <head>
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  
+  {%load static%}
+  <script src="{%static 'terminal.js'%}"></script>
+  <link rel="stylesheet" href="{%static 'terminal.css'%}"/>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.0.943/pdf.min.js"></script> 
+</head>
+<body>
+  <template id='greetings' class='greetings'>
+   ___                       ____         __    __  __      
+  / _ |___ ________  ___    / __/______ _/ /__ / /_/ /___ __
+ / __ / _ `/ __/ _ \/ _ \  _\ \/ __/ _ `/ / -_) __/ __/ // /
+/_/ |_\_,_/_/  \___/_//_/ /___/\__/\_,_/_/\__/\__/\__/\_, / 
+                                                     /___/ 
+type help for command list and normal to get a ui
+  </template>
+  <template id='normal'>lol skill issue...</template>
+  <template id='help'> 
+get cv:                                       download my cv
+aboutme:                                      learn a little about me
+normal:                                       go to learn a website with a gui
+contact:                                      contact me
+clear:                                        clear terminal
+theme:                                        change theme
+  </template>
+<script> 
+var w = window.innerWidth;
+var h = window.innerHeight;
+window.addEventListener('resize', function() {
+  // Code to execute when the window is resized
+  var w = window.innerWidth; 
+  console.log('Window has been resized!');
+});
+window.addEventListener('load', function() {
+  // Code to execute when the window is resized
+  var w = window.innerWidth;
+  console.log('Window has been resized!');
+});
+function getCSSVar(variable) {
+    return window.getComputedStyle(document.documentElement).getPropertyValue('--' + variable);
   }
-  </script> 
-  <div id= 'container'>
-  <div id='responses' hx-on::after-settle= " console.log('focusing up'); myfunc()" tabindex = '-1'>
-        <h1>
-  <pre>
-   _                               __              _        _    _          
-  /_\    __ _  _ __  ___   _ __   / _\  ___  __ _ | |  ___ | |_ | |_  _   _ 
- //_\\  / _` || '__|/ _ \ | '_ \  \ \  / __|/ _` || | / _ \| __|| __|| | | |
-/  _  \| (_| || |  | (_) || | | | _\ \| (__| (_| || ||  __/| |_ | |_ | |_| |
-\_/ \_/ \__,_||_|   \___/ |_| |_| \__/ \___|\__,_||_| \___| \__| \__| \__, |
-                                                                      |___/ 
-  </pre>
-  </h1>
-    <p> welcome to my resume. type help to start or normal to get a ui</p>
-    
- {% include 'aaronscaletty/partials/form.html' with context_variable='response' %}
-</div>
-</div>
+    function changetheme(input){
+      var r = document.querySelector(':root');
+      const themevals = {'catpuccin': ['#232634', '#209fb5','#179299','#40a02b', '#d20f39','#8839ef', '#dd7878', '#dc8a78'],
+        'tokyonight': ['#1f2335 ','#ffc777 ',' #4fd6be ',' #c53b53',' #ff9e64 ', ' #9d7cd8 ',' #41a6b5 ',' #292e42 ']};
+       r.style.setProperty('--primaryColor', themevals[input][0]);    
+       r.style.setProperty('--secondaryColor', themevals[input][1]);
+       r.style.setProperty('--thirdColor', themevals[input][2]);
+       r.style.setProperty('--fourthColor', themevals[input][3]);
+       r.style.setProperty('--fifthColor', themevals[input][4]);       
+      }
+const term= $('body').terminal({
+    hello: function(what) {
+        this.echo('Hello, ' + what +
+                  '. Wellcome to this terminal.');
+    },
+    marco: function() {
+        this.echo('Polo!');
+    },
+    normal:function() {
+        this.echo(normal.innerHTML);
+        setTimeout(function() {
+          window.location.replace("https://scaletty.com/aaronscaletty/ui");
+        }, 1000)
+    },
+    help: function() {
+        this.echo(help.innerHTML);
+    },
+    get: function(input) {
+      if(input== 'cv'){
+      this.echo('[[;darkgreen;] i need to figure out pdf files on js :(]')
+      }
+      },
+    theme: function(input) {
+      changetheme(input);
+      completion:true;
+
+      },
+}, {
+    greetings: greetings.innerHTML 
+      },
+);
+$( "body" ).wrap( "<div class='wrap' id='outer'></div>" );
+function boxes(){
+$(".cmd").prepend("<canvas id= 'promptwrapper' height= '10px'></canvas>")
+const canvas = document.getElementById("promptwrapper");
+var width = window.innerWidth;
+canvas.width= width;
+boxwidth= .05*width;
+gap= width-(boxwidth*9) 
+const ctx = canvas.getContext("2d");
+ctx.beginPath();
+ctx.fillStyle= getCSSVar('secondaryColor');
+ctx.fillRect(0,0, boxwidth,10);
+ctx.fillStyle= getCSSVar('thirdColor');
+ctx.fillRect(boxwidth,0, boxwidth,10)
+ctx.fillStyle= getCSSVar('fourthColor');
+ctx.fillRect(boxwidth*2,0, boxwidth,20);
+ctx.fillStyle= getCSSVar('fifthColor');
+ctx.fillRect(boxwidth*3,0, boxwidth,10);
+ctx.fillStyle= getCSSVar('sixthColor');
+ctx.fillRect(boxwidth*3+gap,0,boxwidth,10)
+ctx.fillStyle= getCSSVar('seventhColor');
+ctx.fillRect(boxwidth*4+gap,0,boxwidth,10)
+ctx.fillStyle= getCSSVar('eighthColor');
+ctx.fillRect(boxwidth*5+gap,0,boxwidth,10)
+
+
+
+
+
+
+}
+boxes();
+window.addEventListener('keydown', function() {
+  if (event.key === 'Enter' || event.keyCode === 13) {
+    console.log('enter')
+    boxes();
+  }
+});
+</script>
 </body>
 </html>
