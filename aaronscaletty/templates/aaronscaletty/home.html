@@ -6,11 +6,10 @@
   {%load static%}
   <script src="{%static 'terminal.js'%}"></script>
   <link rel="stylesheet" href="{%static 'terminal.css'%}"/>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.0.943/pdf.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.0.943/pdf.min.js"></script> 
 </head>
-
 <body>
-  <template id='greetings'>
+  <template id='greetings' class='greetings'>
    ___                       ____         __    __  __      
   / _ |___ ________  ___    / __/______ _/ /__ / /_/ /___ __
  / __ / _ `/ __/ _ \/ _ \  _\ \/ __/ _ `/ / -_) __/ __/ // /
@@ -26,41 +25,34 @@ normal:                                       go to learn a website with a gui
 contact:                                      contact me
 clear:                                        clear terminal
 theme:                                        change theme
-
   </template>
-  <canvas id='canvas' width="200" height="10"></canvas>
-
-  <script>
-
-  var r = document.querySelector(':root');
-  var primary_color= getCSSVar('primaryColor')
-  var secondary_color= getCSSVar('secondaryColor')
-  var third_color= getCSSVar('thirdColor')
-  var fourth_color= getCSSVar('fourthColor')
-  var fifth_color= getCSSVar('fifthColor')
-  var color_array= [[primary_color,secondary_color,third_color,fourth_color,fifth_color],[0,50,100,150,200]];
-  console.log(color_array);
-  const canvas = document.getElementById('canvas');
-  const ctx = canvas.getContext('2d');
-  ctx.fillStyle = 'yellow';
-  ctx.fillRect(0,0,10000, 10000);
-  for (let i=0; i<4;i++){
-  ctx.beginPath(); 
-  ctx.fillStyle= color_array[0][i];
-  ctx.fillRect(color_array[1][i], 0, 50, 50);
-  console.log('filling rectange with', color_array[0][i], 'at 0', color_array[1][i]);
-  ctx.stroke();
-  }
-   function getCSSVar(variable) {
+<script> 
+var w = window.innerWidth;
+var h = window.innerHeight;
+window.addEventListener('resize', function() {
+  // Code to execute when the window is resized
+  var w = window.innerWidth; 
+  console.log('Window has been resized!');
+});
+window.addEventListener('load', function() {
+  // Code to execute when the window is resized
+  var w = window.innerWidth;
+  console.log('Window has been resized!');
+});
+function getCSSVar(variable) {
     return window.getComputedStyle(document.documentElement).getPropertyValue('--' + variable);
   }
     function changetheme(input){
-      if(input=="catpuccin"){
-       r.style.setProperty('--third-color', 'lightblue');
+      var r = document.querySelector(':root');
+      const themevals = {'catpuccin': ['#232634', '#209fb5','#179299','#40a02b', '#d20f39','#8839ef', '#dd7878', '#dc8a78'],
+        'tokyonight': ['#1f2335 ','#ffc777 ',' #4fd6be ',' #c53b53',' #ff9e64 ', ' #9d7cd8 ',' #41a6b5 ',' #292e42 ']};
+       r.style.setProperty('--primaryColor', themevals[input][0]);    
+       r.style.setProperty('--secondaryColor', themevals[input][1]);
+       r.style.setProperty('--thirdColor', themevals[input][2]);
+       r.style.setProperty('--fourthColor', themevals[input][3]);
+       r.style.setProperty('--fifthColor', themevals[input][4]);       
       }
-
-    }
-$('body').terminal({
+const term= $('body').terminal({
     hello: function(what) {
         this.echo('Hello, ' + what +
                   '. Wellcome to this terminal.');
@@ -79,16 +71,55 @@ $('body').terminal({
     },
     get: function(input) {
       if(input== 'cv'){
-
+      this.echo('[[;darkgreen;] i need to figure out pdf files on js :(]')
       }
       },
     theme: function(input) {
       changetheme(input);
+      completion:true;
+
       },
-
-
 }, {
-    greetings: greetings.innerHTML
+    greetings: greetings.innerHTML 
+      },
+);
+$( "body" ).wrap( "<div class='wrap' id='outer'></div>" );
+function boxes(){
+$(".cmd").prepend("<canvas id= 'promptwrapper' height= '10px'></canvas>")
+const canvas = document.getElementById("promptwrapper");
+var width = window.innerWidth;
+canvas.width= width;
+boxwidth= .05*width;
+gap= width-(boxwidth*9) 
+const ctx = canvas.getContext("2d");
+ctx.beginPath();
+ctx.fillStyle= getCSSVar('secondaryColor');
+ctx.fillRect(0,0, boxwidth,10);
+ctx.fillStyle= getCSSVar('thirdColor');
+ctx.fillRect(boxwidth,0, boxwidth,10)
+ctx.fillStyle= getCSSVar('fourthColor');
+ctx.fillRect(boxwidth*2,0, boxwidth,20);
+ctx.fillStyle= getCSSVar('fifthColor');
+ctx.fillRect(boxwidth*3,0, boxwidth,10);
+ctx.fillStyle= getCSSVar('sixthColor');
+ctx.fillRect(boxwidth*3+gap,0,boxwidth,10)
+ctx.fillStyle= getCSSVar('seventhColor');
+ctx.fillRect(boxwidth*4+gap,0,boxwidth,10)
+ctx.fillStyle= getCSSVar('eighthColor');
+ctx.fillRect(boxwidth*5+gap,0,boxwidth,10)
+
+
+
+
+
+
+}
+boxes();
+window.addEventListener('keydown', function() {
+  if (event.key === 'Enter' || event.keyCode === 13) {
+    console.log('enter')
+    boxes();
+  }
 });
 </script>
 </body>
