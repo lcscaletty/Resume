@@ -29,16 +29,6 @@ theme:                                        change theme
 <script> 
 var w = window.innerWidth;
 var h = window.innerHeight;
-window.addEventListener('resize', function() {
-  // Code to execute when the window is resized
-  var w = window.innerWidth; 
-  console.log('Window has been resized!');
-});
-window.addEventListener('load', function() {
-  // Code to execute when the window is resized
-  var w = window.innerWidth;
-  console.log('Window has been resized!');
-});
 function getCSSVar(variable) {
     return window.getComputedStyle(document.documentElement).getPropertyValue('--' + variable);
   }
@@ -50,13 +40,17 @@ function getCSSVar(variable) {
        r.style.setProperty('--secondaryColor', themevals[input][1]);
        r.style.setProperty('--thirdColor', themevals[input][2]);
        r.style.setProperty('--fourthColor', themevals[input][3]);
-       r.style.setProperty('--fifthColor', themevals[input][4]);       
+       r.style.setProperty('--fifthColor', themevals[input][4]);
+       for(let j=0; j<=i;){
+  boxesantecedant(j);
+    j=j+1;
+  }
       }
 const term= $('body').terminal({
     hello: function(what) {
         this.echo('Hello, ' + what +
-                  '. Wellcome to this terminal.');
-    },
+                  '. Welcome to this terminal.');
+          },
     marco: function() {
         this.echo('Polo!');
     },
@@ -65,62 +59,177 @@ const term= $('body').terminal({
         setTimeout(function() {
           window.location.replace("https://scaletty.com/aaronscaletty/ui");
         }, 1000)
-    },
+         },
     help: function() {
         this.echo(help.innerHTML);
-    },
+          },
     get: function(input) {
       if(input== 'cv'){
       this.echo('[[;darkgreen;] i need to figure out pdf files on js :(]')
-      }
+            }
       },
     theme: function(input) {
       changetheme(input);
       completion:true;
-
-      },
+           },
 }, {
-    greetings: greetings.innerHTML 
+    greetings: greetings.innerHTML  
       },
 );
+var i=0;
+$("body").on('keyup', function (e) {
+    if (e.key === 'Enter' || e.keyCode === 13) {
+      console.log('enter'); 
+      boxesantecedant(i)
+      boxes('.cmd')
+      i=i+1
+    }
+});
+window.addEventListener('load', function() {
+  // Code to execute when the window is resized
+  var globalw = window.innerWidth;
+  console.log('terminal initialized')
+  console.log('width', globalw)
+  boxes('.cmd');
+});
+window.addEventListener('resize', function() {
+  // Code to execute when the window is resized
+  var globalw = window.innerWidth; 
+  console.log('Window has been resized!');
+  //boxes('.cmd');
+  setTimeout(function(){
+  for(let j=0; j<=i;){
+  boxesantecedant(j);
+    j=j+1;
+  }
+  },1);
+  
+  }
+);
 $( "body" ).wrap( "<div class='wrap' id='outer'></div>" );
-function boxes(){
-$(".cmd").prepend("<canvas id= 'promptwrapper' height= '10px'></canvas>")
+$( ".cmd" ).wrap( "<div class='container'></div>" );
+$(".cmd-wrapper").css("position", 'relative'); 
+$(".cmd-wrapper").css("left", '8px'); 
+$(".cmd-wrapper").css("top", '23px');
+function funkyshapes(type,initalx,message,canvas){
+  var height=15;
+  const canva = document.getElementById(canvas);
+  const ctx = canva.getContext("2d");
+    if (type === 'first'){
+    ctx.beginPath();
+    width= ctx.measureText(message).width+20
+    h1= width-7;
+
+
+
+      
+    ctx.moveTo(initalx,0);
+    ctx.lineTo(h1,0);
+    ctx.lineTo(width, height/2);
+    ctx.lineTo(h1,height);
+    ctx.lineTo(0,height);
+    ctx.lineTo(0,0);
+    ctx.font = "15px NerdFont";
+    ctx.textAlign= 'left';
+    textWidth= ctx.measureText(message)
+    ctx.fill()
+    ctx.fillStyle= getCSSVar('primaryColor');
+    ctx.fillText(message,initalx+2,height*.85); 
+  }
+  if (type === 'middle'){
+  ctx.beginPath()
+  width= ctx.measureText(message).width+20;
+  h2= width-7+ initalx;
+  h3= initalx-7;
+  ctx.moveTo(initalx,height/2);
+  ctx.lineTo(h3, height);
+  ctx.lineTo(h2,height);
+  ctx.lineTo(width+initalx,height/2);
+  ctx.lineTo(h2,0);
+  ctx.lineTo(h3,0);
+  ctx.lineTo(initalx,height/2)
+  ctx.fill();
+    
+  ctx.font = "15px NerdFont";
+  ctx.textAlign= 'left';
+  ctx.fillStyle= getCSSVar('primaryColor');
+  ctx.fillText(message,initalx,height*.85);
+  }
+  console.log('funky shapes complete')
+}
+function boxes(target){
+  if ($("#promptwrapper").length){
+  }
+  else{
+$(target).prepend("<canvas id= 'promptwrapper' height= '40px'></canvas>");
+}
 const canvas = document.getElementById("promptwrapper");
 var width = window.innerWidth;
 canvas.width= width;
-boxwidth= .05*width;
-gap= width-(boxwidth*9) 
+boxwidth= (width-.3*width)/8
+gap= width-(boxwidth*8) 
 const ctx = canvas.getContext("2d");
+ctx.clearRect(0,0, canvas.width, 30);
 ctx.beginPath();
+ctx.font = "21px NerdFont";
 ctx.fillStyle= getCSSVar('secondaryColor');
-ctx.fillRect(0,0, boxwidth,10);
+funkyshapes('first',0,'','promptwrapper');
 ctx.fillStyle= getCSSVar('thirdColor');
-ctx.fillRect(boxwidth,0, boxwidth,10)
+p1= ctx.measureText('').width+28;
+funkyshapes('middle',p1, ' ascaletty','promptwrapper');
+p2=p1+ ctx.measureText(' ascaletty').width+24;
 ctx.fillStyle= getCSSVar('fourthColor');
-ctx.fillRect(boxwidth*2,0, boxwidth,20);
-ctx.fillStyle= getCSSVar('fifthColor');
-ctx.fillRect(boxwidth*3,0, boxwidth,10);
-ctx.fillStyle= getCSSVar('sixthColor');
-ctx.fillRect(boxwidth*3+gap,0,boxwidth,10)
-ctx.fillStyle= getCSSVar('seventhColor');
-ctx.fillRect(boxwidth*4+gap,0,boxwidth,10)
-ctx.fillStyle= getCSSVar('eighthColor');
-ctx.fillRect(boxwidth*5+gap,0,boxwidth,10)
-
-
-
-
-
-
+funkyshapes('middle',p2,'  main', 'promptwrapper');
+ctx.fillStyle= getCSSVar('primaryColor');
+ctx.fillRect(0,30,20,20);
+ctx.fillStyle= getCSSVar('secondaryColor');
+ctx.font = "20px NerdFont";
+ctx.textAlign= 'left';
+ctx.fillText('󱞩 ',2,36);
 }
-boxes();
-window.addEventListener('keydown', function() {
-  if (event.key === 'Enter' || event.keyCode === 13) {
-    console.log('enter')
-    boxes();
+
+
+
+
+function boxesantecedant(i){
+  console.log("STARTING ANTECEDANT");
+  console.log("i value",i)
+  const canvas1= document.getElementsByClassName("terminal-command")
+console.log(canvas1)
+  if ($(`#promptwrapperant${i}`).length){
+    console.log('exists already dont create a new one');
   }
-});
+  else{
+target= canvas1[i];
+console.log('the winneris ',canvas1[i]);
+    $(target).prepend("<canvas id=" +`promptwrapperant${i}` + " height= '40px'></canvas>");
+}
+const canvas = document.getElementById(`promptwrapperant${i}`);
+var width = window.innerWidth;
+canvas.width= width;
+boxwidth= (width-.3*width)/8
+console.log('box width', boxwidth)
+gap= width-(boxwidth*8) 
+const ctx = canvas.getContext("2d");
+ctx.clearRect(0,0, canvas.width, 30);
+ctx.beginPath();
+ctx.font = "21px NerdFont";
+ctx.fillStyle= getCSSVar('secondaryColor');
+funkyshapes('first',0,'',`promptwrapperant${i}`);
+console.log(ctx.measureText('').width)
+ctx.fillStyle= getCSSVar('thirdColor');
+p1= ctx.measureText('').width+28;
+funkyshapes('middle',p1, ' ascaletty',`promptwrapperant${i}`);
+p2=p1+ ctx.measureText(' ascaletty').width+24;
+ctx.fillStyle= getCSSVar('fourthColor');
+funkyshapes('middle',p2,'  main',`promptwrapperant${i}`);
+ctx.fillStyle= getCSSVar('primaryColor');
+ctx.fillRect(0,30,20,20);
+ctx.fillStyle= getCSSVar('secondaryColor');
+ctx.font = "20px NerdFont";
+ctx.textAlign= 'left';
+ctx.fillText('󱞩 ',2,36);
+}
 </script>
 </body>
 </html>
