@@ -1,0 +1,6 @@
+
+nvim 1* source resume/bin/activate
+nvim 2 source resume/bin/activate
+server 1 source resume/bin/activate
+server 1 python manage.py runserver
+

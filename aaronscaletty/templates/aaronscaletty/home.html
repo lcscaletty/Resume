@@ -35,7 +35,11 @@ function getCSSVar(variable) {
     function changetheme(input){
       var r = document.querySelector(':root');
       const themevals = {'catpuccin': ['#232634', '#209fb5','#179299','#40a02b', '#d20f39','#8839ef', '#dd7878', '#dc8a78'],
-        'tokyonight': ['#1f2335 ','#ffc777 ',' #4fd6be ',' #c53b53',' #ff9e64 ', ' #9d7cd8 ',' #41a6b5 ',' #292e42 ']};
+        'tokyonight': ['#1f2335 ','#ffc777 ',' #4fd6be ',' #c53b53',' #ff9e64 ', ' #9d7cd8 ',' #41a6b5 ',' #292e42 '],
+      'solarizeddark': ['#002b36' , '#586e75', '#b58900', '#859900','#dc322f', '#2aa198','#6c71c4','#268bd2' ],
+      'dracula':['#282A36','#6272A4','#8BE9FD','#50FA7B','#FFB86C','#FF79C6','#BD93F9','#FF5555'],
+      'everforest':['#1E2326','#4F5B58','#56635f','#4C3743', '#493B40','#3C4841','#384B55','#4F5B58'],
+      };
        r.style.setProperty('--primaryColor', themevals[input][0]);    
        r.style.setProperty('--secondaryColor', themevals[input][1]);
        r.style.setProperty('--thirdColor', themevals[input][2]);
@@ -70,11 +74,18 @@ const term= $('body').terminal({
       },
     theme: function(input) {
       changetheme(input);
-      completion:true;
            },
-}, {
-    greetings: greetings.innerHTML  
-      },
+}, 
+  {
+    completion: function(string, callback){
+      if(this.get_command().match(/^theme/)){
+        callback(['everforest', 'catpuccin', 'tokyonight', 'dracula', 'solarizeddark']);
+      }
+        else {
+          callback(['help','get','normal','theme']);
+        } 
+    }
+      }, 
 );
 var i=0;
 $("body").on('keyup', function (e) {
@@ -91,6 +102,7 @@ window.addEventListener('load', function() {
   console.log('terminal initialized')
   console.log('width', globalw)
   boxes('.cmd');
+  greetings = greetings.innerHTML
 });
 window.addEventListener('resize', function() {
   // Code to execute when the window is resized
@@ -106,6 +118,7 @@ window.addEventListener('resize', function() {
   
   }
 );
+ 
 $( "body" ).wrap( "<div class='wrap' id='outer'></div>" );
 $( ".cmd" ).wrap( "<div class='container'></div>" );
 $(".cmd-wrapper").css("position", 'relative'); 
